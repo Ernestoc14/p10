@@ -53,16 +53,16 @@ public class p10 {
         System.out.printf("\nDeme la temperatura a verificar:");
         tempverif = sn.nextDouble();
         for(si=0;si<7;si++) 
-        {   if(temperaturas[1][si]==tempverif)
-            {   mayor = temperaturas[1][si];
-                aux=si;
+        {   if(temperaturas[1][si]==tempverif)  //Comparamos la temp dada con cada una del array
+            {   mayor = temperaturas[1][si];    //Guardamos la temp en mayor, si se encuentra en el array
+                aux=si; //Guardamos la posicion de la temp mayor
             }
         }
-        if(mayor==tempverif){   
-            System.out.printf("\nLa temperatura mas alta fue de: %.2f y el dia es: %s ", mayor, days[aux]);
+        if(mayor==tempverif){   //Si la temp dada es encontrada en el array
+            System.out.printf("\nLa temperatura mas alta fue de: %.2f y el dia es: %s ", mayor, days[aux]); //Imprimimos la temp y dia mediante la var aux
             }
-            else{
-            System.out.printf("\nNo se encontro un dia con la temperatura dada");
+            else{   //Sino se encuentra la temp dada
+            System.out.printf("\nNo se encontro un dia con la temperatura dada");   
             }
     }
     public static void main(String[] args) throws Exception {
