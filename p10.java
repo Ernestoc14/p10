@@ -27,25 +27,51 @@ public class p10 {
         {    System.out.printf("Deme la temperatura mas alta en el dia %s :",days[fi]);
             temperaturas [1][fi] = sn.nextDouble();
         }
-        // for(int fi=0;fi<2;fi++)
-        // {   for(si=0;si<7;si++)
-        //     System.out.printf("\ndia %s es %.2f:",days[si], temperaturas[fi][si]);
-        // }
-        // System.out.printf("\n");
     }  
-    public void Prom(){
+    public void Prom(){ //Opc-1 Temp Media cada dia
         int fi;
         for(fi=0;fi<7;fi++)
         {   TempMedia[fi] = ((temperaturas [0][fi]+temperaturas[1][fi])/2);
-            System.out.printf("/nLa temperatura media en el dia %s es de %.2f :",days[fi], TempMedia[fi]);
+            System.out.printf("\nLa temperatura media en el dia %s es de %.2f",days[fi], TempMedia[fi]);
         }  
+    }
+    public void TempBaja(){ //Opc-2 Temp mas baja y Dias
+        double menor;
+        int si=0,aux=0;
+        menor=temperaturas [0][0];
+        for(si=0;si<7;si++) //Min Temp
+        {   if(temperaturas[0][si]< menor)
+            {   menor = temperaturas[0][si];
+                aux=si;
+            }
+        }
+        System.out.printf("\nLa temperatura mas baja fue de: %.2f y el dia es: %s ", menor, days[aux]);
+    }
+    public void VerifMax(){  //Opc-3 Verificar si hay temp max y mostrar los dias con esta
+        double tempverif=0,mayor=0; // Temperatura maxima a verificar
+        int si=0,aux=0;
+        System.out.printf("\nDeme la temperatura a verificar:");
+        tempverif = sn.nextDouble();
+        for(si=0;si<7;si++) 
+        {   if(temperaturas[1][si]==tempverif)
+            {   mayor = temperaturas[1][si];
+                aux=si;
+            }
+        }
+        if(mayor==tempverif){   
+            System.out.printf("\nLa temperatura mas alta fue de: %.2f y el dia es: %s ", mayor, days[aux]);
+            }
+            else{
+            System.out.printf("\nNo se encontro un dia con la temperatura dada");
+            }
     }
     public static void main(String[] args) throws Exception {
         Scanner sn = new Scanner(System.in);
         p10 pr = new p10();
         pr.Fill();
-        System.out.print("Promedio ");
         pr.Prom();
+        pr.TempBaja();
+        pr.VerifMax();
         sn.close();
     }
 }  
